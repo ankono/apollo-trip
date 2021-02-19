@@ -5,7 +5,7 @@ export const resolvers = {
   Query: {
     trips: async (_, { offset, limit }) => {
       const returnedTrips = await Trip.find().skip(offset).limit(limit)
-      return returnedTrips
+      return returnedTrips;
     }
   },
   Mutation: {
@@ -13,7 +13,7 @@ export const resolvers = {
       const inputArray = [input.fromPlaceId, input.toPlaceId];
       const placeIdsArr = await getPlaceName(...inputArray)
       const journey = new Trip({
-        fromPlaceId: placeIdsArr[0], toPlaceId: placeIdsArr[1]
+        fromPlaceId: { name: placeIdsArr[0] }, toPlaceId: { name: placeIdsArr[1] }
       });
       await journey.save();
       return journey;

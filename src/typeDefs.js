@@ -11,8 +11,8 @@ export const typeDefs = gql`
 
   type Trip {
     id: ID! # format "urn::trip:<mongo object id>"
-    from: Location!
-    to: Location!
+    fromPlaceId: Location!
+    toPlaceId: Location!
   }
 
   type Location {

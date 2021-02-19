@@ -1,6 +1,7 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
 
+
 export const getPlaceName = async (placeFrom, placeTo) => {
   const apiKey = process.env.MAPBOX_TOKEN;
   const placeArr = [placeFrom, placeTo]

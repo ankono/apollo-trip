@@ -1,3 +1,3 @@
 import mongoose from 'mongoose';
 
-export const Trip = mongoose.model('Trip', { fromPlaceId: String, toPlaceId: String });
+export const Trip = mongoose.model('Trip', { fromPlaceId: Object, toPlaceId: Object });
