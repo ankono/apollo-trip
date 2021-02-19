@@ -5,8 +5,8 @@ export const resolvers = {
     trips: () => Trip.find()
   },
   Mutation: {
-    createTrip: async (_, { }) => {
-      const journey = new Trip({});
+    createTrip: async (_, { input }) => {
+      const journey = new Trip({ fromPlaceId: input.fromPlaceId, toPlaceId: input.toPlaceId });
       await journey.save();
       return journey;
     }
