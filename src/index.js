@@ -17,7 +17,7 @@ const startServer = async () => {
 
   const uri = process.env.ATLAS_URI;
 
-  await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
   app.listen({ port: 4000 }, () =>
     console.log(`Server ready at http://localhost:4000${server.graphqlPath}`)

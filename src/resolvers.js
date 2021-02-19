@@ -4,14 +4,13 @@ import { getPlaceName } from './servises';
 export const resolvers = {
   Query: {
     trips: async (_, { offset, limit }) => {
-      const returnedTrips = await Trip.find().skip(offset).limit(limit)
+      const returnedTrips = await Trip.find().skip(offset).limit(limit);
       return returnedTrips;
     }
   },
   Mutation: {
     createTrip: async (_, { input }) => {
-      const inputArray = [input.fromPlaceId, input.toPlaceId];
-      const placeIdsArr = await getPlaceName(...inputArray)
+      const placeIdsArr = await getPlaceName(input.fromPlaceId, input.toPlaceId)
       const journey = new Trip({
         fromPlaceId: { name: placeIdsArr[0] }, toPlaceId: { name: placeIdsArr[1] }
       });
